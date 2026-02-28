@@ -13,12 +13,12 @@ public:
 
     std::string getSuitName() const {
         switch(suit) {
-            case Suit::HEARTS:   return "Hearts";
-            case Suit::DIAMONDS: return "Diamonds";
-            case Suit::CLUBS:    return "Clubs";
-            case Suit::SPADES:   return "Spades";
+            case Suit::HEARTS:   return "H";
+            case Suit::DIAMONDS: return "D";
+            case Suit::CLUBS:    return "C";
+            case Suit::SPADES:   return "S";
         }
-        return "Unknown";
+        return "?";
     }
 
     std::string getRankName() const {
@@ -40,15 +40,7 @@ public:
         return "?";
     }
 
-    // Nilai chip dasar kartu (untuk scoring nanti)
-    int getBaseChips() const {
-        int r = static_cast<int>(rank);
-        if (r >= 10) return 10; // J, Q, K = 10
-        if (rank == Rank::ACE) return 11;
-        return r;
-    }
-
     std::string toString() const {
-        return getRankName() + " of " + getSuitName();
+        return "[" + getRankName() + getSuitName() + "]";
     }
 };
